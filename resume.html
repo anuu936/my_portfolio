@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anusha Gond - Resume</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1a1a1a;
+      --secondary: #4a4a4a;
+      --accent: #ff7b00;
+      --light-bg: #f8f9fa;
+      --border: #e2e8f0;
+      --font-heading: 'Outfit', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--primary);
+      line-height: 1.5;
+      background-color: #f1f5f9;
+      padding: 40px 20px;
+    }
+
+    /* Print Preview Wrapper */
+    .resume-page {
+      background: white;
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      position: relative;
+    }
+
+    /* Actions Bar */
+    .actions-bar {
+      max-width: 800px;
+      margin: 0 auto 20px auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .btn-print {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--accent);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(255, 123, 0, 0.2);
+      transition: all 0.2s;
+    }
+
+    .btn-print:hover {
+      background-color: #e06c00;
+      transform: translateY(-1px);
+    }
+
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+
+    /* Resume Structure */
+    header {
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .header-main h1 {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: -0.5px;
+      line-height: 1;
+    }
+
+    .header-main .subtitle {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--accent);
+      margin-top: 6px;
+    }
+
+    .header-contact {
+      text-align: right;
+      font-size: 0.85rem;
+      color: var(--secondary);
+    }
+
+    .header-contact p {
+      margin-bottom: 3px;
+    }
+
+    .header-contact a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .header-contact a:hover {
+      text-decoration: underline;
+    }
+
+    .grid-layout {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 30px;
+    }
+
+    section {
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--primary);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+    }
+
+    .summary-text {
+      font-size: 0.9rem;
+      color: var(--secondary);
+      line-height: 1.6;
+    }
+
+    /* Projects */
+    .project-item {
+      margin-bottom: 16px;
+    }
+
+    .project-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 4px;
+    }
+
+    .project-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .project-tech {
+      font-size: 0.8rem;
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .project-desc {
+      font-size: 0.85rem;
+      color: var(--secondary);
+      margin-left: 12px;
+      line-height: 1.5;
+    }
+
+    .project-desc li {
+      margin-bottom: 3px;
+    }
+
+    /* Sidebar Columns */
+    .skills-group {
+      margin-bottom: 12px;
+    }
+
+    .skills-group-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+
+    .skills-list {
+      font-size: 0.8rem;
+      color: var(--secondary);
+      line-height: 1.4;
+    }
+
+    .sidebar-list {
+      list-style: none;
+      font-size: 0.85rem;
+      color: var(--secondary);
+    }
+
+    .sidebar-list li {
+      margin-bottom: 6px;
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+    }
+
+    .sidebar-list li::before {
+      content: "•";
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    /* Declaration */
+    .declaration {
+      margin-top: 25px;
+      padding-top: 15px;
+      border-top: 1px solid var(--border);
+      font-size: 0.75rem;
+      color: var(--secondary);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .signature-area {
+      text-align: right;
+    }
+
+    .signature-line {
+      width: 150px;
+      border-top: 1px solid var(--primary);
+      margin-bottom: 4px;
+    }
+
+    /* Print Styles */
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+        color: black;
+      }
+
+      .resume-page {
+        box-shadow: none;
+        padding: 0;
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .actions-bar {
+        display: none;
+      }
+
+      @page {
+        size: A4;
+        margin: 15mm 15mm;
+      }
+
+      h2 {
+        border-color: #94a3b8;
+      }
+
+      header {
+        border-color: black;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .resume-page {
+        padding: 20px;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .header-contact {
+        text-align: left;
+      }
+
+      .grid-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Actions for web preview -->
+  <div class="actions-bar">
+    <a href="index.html" class="btn-back">← Back to Portfolio</a>
+    <button onclick="window.print()" class="btn-print">
+      <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" style="display:inline-block; vertical-align:middle; margin-top:-2px">
+        <path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/>
+      </svg>
+      Print / Save as PDF
+    </button>
+  </div>
+
+  <!-- Main Resume Content -->
+  <div class="resume-page">
+    <header>
+      <div class="header-main">
+        <h1>ANUSHA GOND</h1>
+        <div class="subtitle">Web Developer | Cyber & Digital Science Student</div>
+      </div>
+      <div class="header-contact">
+        <p>📍 Maharashtra, India</p>
+        <p>📞 +91 7745016347</p>
+        <p>📧 <a href="mailto:anushagond@gmail.com">anushagond@gmail.com</a></p>
+        <p>🔗 <a href="https://github.com/anuu936" target="_blank">github.com/anuu936</a></p>
+        <p>🔗 <a href="http://linkedin.com/in/anusha-gond" target="_blank">linkedin.com/in/anusha-gond</a></p>
+      </div>
+    </header>
+
+    <div class="grid-layout">
+      <!-- Left Column: Core Experience / Projects -->
+      <div class="col-main">
+        <section>
+          <h2>Professional Summary</h2>
+          <p class="summary-text">
+            Motivated and detail-oriented Software Developer with hands-on experience in building responsive websites and web applications. Skilled in HTML, CSS, JavaScript, PHP, MySQL, Git, and GitHub. Passionate about developing user-friendly digital solutions and continuously learning new technologies. Seeking opportunities to contribute technical skills and grow as a professional developer.
+          </p>
+        </section>
+
+        <section>
+          <h2>Projects</h2>
+          
+          <div class="project-item">
+            <div class="project-header">
+              <div class="project-title">Placement & Internship Portal</div>
+              <div class="project-tech">HTML, CSS, JavaScript, PHP, MySQL</div>
+            </div>
+            <ul class="project-desc">
+              <li>Developed a complete placement and internship management system.</li>
+              <li>Implemented secure student, recruiter, and admin authentication mechanisms.</li>
+              <li>Created job posting, application tracking, and resume upload pipelines.</li>
+              <li>Designed responsive user dashboards and management panels to improve accessibility.</li>
+            </ul>
+          </div>
+
+          <div class="project-item" style="margin-top: 12px;">
+            <div class="project-header">
+              <div class="project-title">Personal Portfolio Website</div>
+              <div class="project-tech">HTML, CSS, JavaScript</div>
+            </div>
+            <ul class="project-desc">
+              <li>Designed and developed a modern, cinematic portfolio website.</li>
+              <li>Showcased projects, technical skills, and achievements.</li>
+              <li>Implemented responsive layouts optimized for mobile and desktop screens.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2>Education</h2>
+          <div class="project-item">
+            <div class="project-header">
+              <div class="project-title">Bachelor's Degree in CDS (Cyber & Digital Science)</div>
+              <div style="font-size: 0.8rem; font-weight: 600; color: var(--accent);">CURRENTLY PURSUING</div>
+            </div>
+            <div style="font-size: 0.85rem; color: var(--secondary); margin-bottom: 2px;">
+              K.T.H.M College, University Name: SSUP
+            </div>
+            <p style="font-size: 0.8rem; color: var(--secondary); line-height: 1.4;">
+              Developing strong foundational knowledge in network security, digital forensics, secure development patterns, and computer science fundamentals.
+            </p>
+          </div>
+        </section>
+      </div>
+
+      <!-- Right Column: Skills, Certifications, Strengths -->
+      <div class="col-side">
+        <section>
+          <h2>Technical Skills</h2>
+          
+          <div class="skills-group">
+            <div class="skills-group-title">Languages & Web:</div>
+            <div class="skills-list">HTML5, CSS3, JavaScript, PHP, SQL</div>
+          </div>
+
+          <div class="skills-group">
+            <div class="skills-group-title">Database:</div>
+            <div class="skills-list">MySQL</div>
+          </div>
+
+          <div class="skills-group">
+            <div class="skills-group-title">Tools & Platforms:</div>
+            <div class="skills-list">Git, GitHub, VS Code</div>
+          </div>
+
+          <div class="skills-group">
+            <div class="skills-group-title">Core Concepts:</div>
+            <div class="skills-list">Responsive Web Design, Version Control, Database Management, Web Development</div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Certifications</h2>
+          <ul class="sidebar-list">
+            <li>Web Development Certification</li>
+            <li>JavaScript Fundamentals</li>
+            <li>Git & GitHub Essentials</li>
+            <li>Cybersecurity Fundamentals</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Achievements</h2>
+          <ul class="sidebar-list">
+            <li>Developed multiple web-based projects.</li>
+            <li>Actively learning modern technologies.</li>
+            <li>Strong focus on cybersecurity principles.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Languages</h2>
+          <div style="font-size: 0.85rem; color: var(--secondary);">
+            English | Hindi | Marathi
+          </div>
+        </section>
+
+        <section>
+          <h2>Strengths</h2>
+          <ul class="sidebar-list" style="font-size: 0.8rem;">
+            <li>Problem Solving</li>
+            <li>Quick Learning</li>
+            <li>Team Collaboration</li>
+            <li>Communication Skills</li>
+            <li>Attention to Detail</li>
+          </ul>
+        </section>
+      </div>
+    </div>
+
+    <!-- Declaration -->
+    <div class="declaration">
+      <div>
+        <p><strong>Declaration:</strong></p>
+        <p>I hereby declare that the information provided above is true and correct to the best of my knowledge.</p>
+      </div>
+      <div class="signature-area">
+        <div class="signature-line"></div>
+        <p><strong>Anusha Gond</strong></p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
